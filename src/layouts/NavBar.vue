@@ -1,21 +1,23 @@
 <template>
   <nav class="fixed w-full gradient">
     <div
-      class="container mx-auto flex flex-wrap justify-between items-center text-white p-2"
+      class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 p-2"
     >
-      <div class="flex items-center text-2xl lg:text-4xl">
+      <div class="text-white">
         <!-- Icon from <a href="https://icons8.com/icon/19806/hot-air-balloon">Hot Air Balloon icon by Icons8 -->
-        <img
-          class="h-8"
-          src="https://img.icons8.com/color/48/000000/hot-air-balloon.png"
-        />
-        <span class="ml-4">ICARUS</span>
+        <router-link class="flex items-center text-2xl lg:text-4xl" to="/">
+          <img
+            class="h-8"
+            src="https://img.icons8.com/color/48/000000/hot-air-balloon.png"
+          />
+          <span class="ml-4">ICARUS</span>
+        </router-link>
       </div>
 
-      <div class="md:hidden">
+      <div class="block md:hidden pr-4">
         <button
           @click="toonMenu = !toonMenu"
-          class="border border-white p-2 rounded focus:outline-none"
+          class="flex items-center px-3 py-2 border rounded focus:outline-none"
         >
           <svg
             class="fill-current w-4 h-4"
@@ -28,21 +30,33 @@
       </div>
 
       <ul
-        class="w-full md:flex md:items-center md:w-auto bg-white md:bg-transparent text-gray-800 text-center py-4"
+        class="w-full md:w-auto flex-grow md:flex md:justify-end md:items-center text-center mt-2 md:mt-0 bg-white md:bg-transparent text-gray-900 p-4 md:p-0 -mx-2"
         :class="{ hidden: !toonMenu }"
       >
         <li class="p-2">
-          <router-link class="font-bold" to="/">Home</router-link>
+          <router-link
+            class="inline-block py-2 px-4 text-gray-900 font-bold no-underline"
+            to="/"
+            >Home</router-link
+          >
         </li>
         <li class="p-2 md:ml-3">
-          <router-link class="" to="/contact">Contacteer ons</router-link>
+          <router-link
+            class="inline-block text-gray-900 no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+            to="/contact"
+            >Contacteer ons</router-link
+          >
         </li>
         <li class="p-2 md:ml-3">
-          <router-link class="" to="/aanmelden">Aanmelden</router-link>
+          <router-link
+            class="inline-block text-gray-900 no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+            to="/aanmelden"
+            >Aanmelden</router-link
+          >
         </li>
         <li class="md:ml-3">
           <button
-            class="py-4 px-8 bg-blue-500 rounded-full text-white font-bold shadow-md"
+            class="button-gradient block mx-auto md:mx-0 hover:bg-blue-200 font-bold rounded-full mt-4 md:mt-0 md:ml-3 py-4 px-8 shadow opacity-75 bg-white"
           >
             BOEKEN
           </button>
