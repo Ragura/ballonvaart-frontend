@@ -35,7 +35,8 @@
       >
         <li class="p-2">
           <router-link
-            class="inline-block py-2 px-4 text-gray-900 font-bold no-underline"
+            class="inline-block py-2 px-4 text-gray-900 no-underline"
+            exact-active-class="font-bold"
             to="/"
             >Home</router-link
           >
@@ -43,20 +44,30 @@
         <li class="p-2 md:ml-3">
           <router-link
             class="inline-block text-gray-900 no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+            exact-active-class="font-bold"
             to="/contact"
             >Contacteer ons</router-link
           >
         </li>
-        <li class="p-2 md:ml-3">
+        <li v-if="!$store.state.auth.huidigeGebruiker" class="p-2 md:ml-3">
           <router-link
             class="inline-block text-gray-900 no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+            exact-active-class="font-bold"
             to="/aanmelden"
             >Aanmelden</router-link
           >
         </li>
+        <li v-else class="p-2 md:ml-3">
+          <a
+            class="inline-block cursor-pointer text-gray-900 no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+            exact-active-class="font-bold"
+            @click.prevent="$store.dispatch('auth/afmelden')"
+            >{{ $store.state.auth.huidigeGebruiker.voornaam }} Afmelden</a
+          >
+        </li>
         <li class="md:ml-3">
           <button
-            class="button-gradient block mx-auto md:mx-0 hover:bg-blue-200 font-bold rounded-full mt-4 md:mt-0 md:ml-3 py-4 px-8 shadow opacity-75 bg-white"
+            class="block mx-auto md:mx-0 hover:bg-blue-200 font-bold rounded-full mt-4 md:mt-0 md:ml-3 py-4 px-8 shadow opacity-75 bg-white"
           >
             BOEKEN
           </button>

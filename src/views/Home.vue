@@ -91,9 +91,7 @@
               :key="vaart.titel"
             >
               <ballon-card class="flex-grow" :inhoud="vaart">
-                <button
-                  class="gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
-                >
+                <button class="button-gradient my-6">
                   BOEKEN
                 </button>
               </ballon-card>
