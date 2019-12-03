@@ -134,10 +134,20 @@ export default {
   methods: {
     async aanmelden() {
       try {
-        this.$store.dispatch("auth/aanmelden", {
+        await this.$store.dispatch("auth/aanmelden", {
           email: this.formAanmelden.email,
           wachtwoord: this.formAanmelden.wachtwoord
         });
+        const { redirect, ...query } = this.$router.currentRoute.query;
+        // if (redirect) {
+        //   this.$router.push({ name: redirect, query });
+        // } else {
+        //   this.$router.push({ name: "home" });
+        // }
+
+        this.$router.push(
+          redirect ? { name: redirect, query } : { name: "home" }
+        );
       } catch (err) {
         this.$toasted.show("Fout bij aanmelden", {
           theme: "bubble",

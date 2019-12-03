@@ -66,11 +66,13 @@
           >
         </li>
         <li class="md:ml-3">
-          <button
+          <router-link
+            tag="button"
+            :to="{ name: 'boeken' }"
             class="block mx-auto md:mx-0 hover:bg-blue-200 font-bold rounded-full mt-4 md:mt-0 md:ml-3 py-4 px-8 shadow opacity-75 bg-white"
           >
             BOEKEN
-          </button>
+          </router-link>
         </li>
       </ul>
     </div>
