@@ -15,7 +15,9 @@ Vue.config.productionTip = false;
 import "@/directives/visible";
 
 Vue.use(Vuelidate);
-Vue.use(Toasted);
+Vue.use(Toasted, {
+  duration: 2000
+});
 
 new Vue({
   router,

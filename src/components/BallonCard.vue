@@ -12,7 +12,7 @@
     <div class="flex flex-col flex-grow px-6 py-4">
       <h3 class="text-gray-800 font-bold text-xl">{{ inhoud.titel }}</h3>
       <p class="text-gray-600 mt-2 flex-grow">{{ inhoud.beschrijving }}</p>
-      <p class="text-gray-900 font-bold mt-2">{{ inhoud.prijs }}</p>
+      <p class="text-gray-900 font-bold mt-2">€ {{ inhoud.prijs }}</p>
     </div>
     <div class="flex justify-center">
       <slot></slot>

@@ -172,12 +172,13 @@ export default {
     },
     async boeken() {
       try {
-        await this.$axios.post("/boekingen", {
+        await this.$axios.post("/boekingen/boeken", {
           datum: dayjs(this.datum).format("YYYY-MM-DD"),
           moment: this.moment,
           type: this.type,
           aantalPersonen: this.aantalPersonen
         });
+        this.$toasted.info("Uw boeking werd geregistreerd!");
         this.$router.push({ name: "home" });
       } catch (err) {
         this.$toasted.error("Fout bij het boeken. Probeer later opnieuw.");
@@ -185,14 +186,19 @@ export default {
     }
   },
   async created() {
-    const { data } = await this.$axios.get("/boekingen/geboektedata");
-    this.geboekteData = data;
+    try {
+      const { data } = await this.$axios.get("/boekingen/geboektedata");
+      this.geboekteData = data;
+    } catch (err) {
+      console.log(err);
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .mx-datepicker {
-  width: auto !important;
+  width: auto;
+  display: block;
 }
 </style>
